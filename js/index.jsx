@@ -2,7 +2,7 @@ const app = document.getElementById("app");
 const root = ReactDOM.createRoot(app);
 
 function LinkButton({ link, label, newTab }) {
-    if (newTab === false) {
+    if (newTab === "false") {
         return (
             <a className="btn btn-primary" href={link} target="_blank">{label}</a>
         )
