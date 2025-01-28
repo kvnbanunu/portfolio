@@ -4,11 +4,11 @@ const root = ReactDOM.createRoot(app);
 function LinkButton({ link, label, newTab }) {
     if ({newTab} == false) {
         return (
-            <a class="btn btn-primary" href={link} target="_blank">{label}</a>
+            <a className="btn btn-primary" href={link} target="_blank">{label}</a>
         )
     }
     return (
-        <a class="btn btn-primary" href={link}>{label}</a>
+        <a className="btn btn-primary" href={link}>{label}</a>
     )
 }
 
