@@ -1,3 +1,3 @@
 # Banunu's Portfolio
 
-Check out the page @ [banunu.dev]
+Check out the page @ [https://banunu.dev]
