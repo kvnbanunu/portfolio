@@ -16,9 +16,6 @@ export const TempComponent: React.FC = () => {
         (kvnbanunu)
       </h1>
 
-      <img src="https://upload.wikimedia.org/wikipedia/en/9/96/Meme_Man_on_transparent_background.webp">
-      <h1>Arman</h1>
-
       <div>
         <h2 className="w-full text-xl text-center">Important Links</h2>
         <nav className="flex flex-wrap justify-center gap-4 text-lg">
