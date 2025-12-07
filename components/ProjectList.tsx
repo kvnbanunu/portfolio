@@ -37,9 +37,39 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         <BadgeList tools={project.tools} />
       </ItemContent>
       <ItemActions>
-        <Button asChild>
-          <Link href={project.github}>Github</Link>
-        </Button>
+        {project.mvp && (
+          <Button asChild variant="outline" className="w-20">
+            <Link
+              href={project.mvp}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Mvp
+            </Link>
+          </Button>
+        )}
+        {project.github && (
+          <Button asChild className="w-20">
+            <Link
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Github
+            </Link>
+          </Button>
+        )}
+        {project.docs && (
+          <Button asChild className="w-20">
+            <Link
+              href={project.docs}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Docs
+            </Link>
+          </Button>
+        )}
       </ItemActions>
     </Item>
   );

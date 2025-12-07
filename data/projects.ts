@@ -3,7 +3,9 @@ import { Tool } from "./tools";
 export interface Project {
   name: string;
   description: string;
-  github: string;
+  github?: string;
+  mvp?: string;
+  docs?: string;
   tools: Tool[];
 }
 
@@ -19,6 +21,7 @@ export const projects: Project[] = [
     description:
       "Habit streak tracker with social features inspired by Snapchat and Strava.",
     github: "https://github.com/kvnbanunu/flynt",
+    mvp: "htts://flyntapp.io",
     tools: ["Go", "TypeScript", "SQLite", "NextJS", "React"],
   },
   {
@@ -38,7 +41,7 @@ export const projects: Project[] = [
     name: "Terminal Chat System",
     description:
       "Network protocol designed for a real-time chat system. The system is comprised of many distributed programs working in tandem.",
-    github: "",
+    docs: "/terminal-chat-protocol-rfc.pdf",
     tools: ["C", "Ncurses"],
   },
   {
