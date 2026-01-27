@@ -21,7 +21,7 @@ export const projects: Project[] = [
     description:
       "Habit streak tracker with social features inspired by Snapchat and Strava.",
     github: "https://github.com/kvnbanunu/flynt",
-    mvp: "htts://flyntapp.io",
+    mvp: "https://flyntapp.io",
     tools: ["Go", "TypeScript", "SQLite", "NextJS", "React"],
   },
   {
