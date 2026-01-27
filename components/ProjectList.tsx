@@ -15,7 +15,7 @@ export const ProjectList: React.FC<{ projects: Project[] }> = ({
   projects,
 }) => {
   return (
-    <Item>
+    <Item className="px-0">
       <ItemContent>
         <ItemTitle className="text-xl font-bold">Project List</ItemTitle>
         <div className="flex flex-col gap-2 mt-2">
@@ -39,11 +39,7 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
       <ItemActions>
         {project.mvp && (
           <Button asChild variant="outline" className="w-20">
-            <Link
-              href={project.mvp}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href={project.mvp} target="_blank" rel="noopener noreferrer">
               Mvp
             </Link>
           </Button>
@@ -61,11 +57,7 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         )}
         {project.docs && (
           <Button asChild className="w-20">
-            <Link
-              href={project.docs}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href={project.docs} target="_blank" rel="noopener noreferrer">
               Docs
             </Link>
           </Button>
