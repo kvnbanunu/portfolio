@@ -1,12 +1,16 @@
 import React from "react";
-import { About } from "@/data/about";
-import { CardDescription, CardHeader, CardTitle } from "./ui/card";
+import { About, links } from "@/data/about";
+import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import { LinksList } from "./LinksList";
 
 export const AboutMe: React.FC = () => {
   return (
-    <CardHeader>
-      <CardTitle className="text-3xl">Kevin Van Nguyen</CardTitle>
-      <CardDescription className="text-foreground">{About}</CardDescription>
-    </CardHeader>
+    <Card className="w-full">
+      <CardHeader>
+        <CardTitle className="text-3xl">Kevin Van Nguyen</CardTitle>
+        <CardDescription className="text-foreground">{About}</CardDescription>
+      </CardHeader>
+      <LinksList links={links} />
+    </Card>
   );
 };
