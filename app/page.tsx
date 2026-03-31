@@ -8,15 +8,19 @@ import { projects } from "@/data/projects";
 
 export default function Home() {
   return (
-    <Card className="px-4">
+    <div className="p-4 bg-pal4 flex flex-col gap-4">
       <Alert className="text-center bg-yellow-100 text-yellow-900">
         <AlertTitle>This site is under construction</AlertTitle>
       </Alert>
-      <AboutMe />
-      <CardContent>
+      <Card className="bg-pal2">
+        <AboutMe />
         <LinksList links={links} />
-        <ProjectList projects={projects} />
-      </CardContent>
-    </Card>
+      </Card>
+      <Card className="bg-pal2">
+        <CardContent>
+          <ProjectList projects={projects} />
+        </CardContent>
+      </Card>
+    </div>
   );
 }

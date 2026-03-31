@@ -11,7 +11,10 @@ export type Tool =
   | "Graphviz"
   | "Ncurses"
   | "SDL2"
-  | "Bubbletea";
+  | "Bubbletea"
+  | "Vite"
+  | "Babel"
+  | "TailwindCSS";
 
 export const tools: Record<Tool, ToolType> = {
   Go: "Language",
@@ -26,4 +29,7 @@ export const tools: Record<Tool, ToolType> = {
   Ncurses: "Tool",
   SDL2: "Tool",
   Bubbletea: "Tool",
+  Vite: "Tool",
+  Babel: "Tool",
+  TailwindCSS: "Tool",
 };

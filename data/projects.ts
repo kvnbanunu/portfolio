@@ -3,17 +3,31 @@ import { Tool } from "./tools";
 export interface Project {
   name: string;
   description: string;
+  tools: Tool[];
   github?: string;
   mvp?: string;
+  npm?: string;
   docs?: string;
-  tools: Tool[];
+  devpost?: string;
+  thumbnail?: string;
 }
 
 export const projects: Project[] = [
   {
-    name: "dbtui",
+    name: "QuickStyle",
+    description:
+      "Designed to let developers edit the content and styling of a React application directly within a live browser view while automatically updating the underlying code.",
+    github: "https://github.com/kvnbanunu/quick-style",
+    mvp: "https://www.npmjs.com/package/quick-style-hackathon",
+    npm: "https://www.npmjs.com/package/quick-style-hackathon",
+    devpost: "https://devpost.com/software/quickstyle",
+    tools: ["JavaScript", "TailwindCSS", "Vite", "Babel"],
+  },
+  {
+    name: "DBTUI",
     description: "Visual database manager right in your terminal!",
     github: "https://github.com/kvnbanunu/dbtui",
+    devpost: "https://devpost.com/software/dbtui",
     tools: ["Go", "Bubbletea", "SQLite"],
   },
   {
@@ -22,13 +36,13 @@ export const projects: Project[] = [
       "Habit streak tracker with social features inspired by Snapchat and Strava.",
     github: "https://github.com/kvnbanunu/flynt",
     mvp: "https://flyntapp.io",
-    tools: ["Go", "TypeScript", "SQLite", "NextJS", "React"],
+    tools: ["Go", "TypeScript", "SQLite", "NextJS", "React", "TailwindCSS"],
   },
   {
     name: "Habibi's Mediterranean Foods",
     description: "Intuitive content management system for a local business.",
     github: "https://github.com/habibisfoods/website",
-    tools: ["TypeScript", "Supabase", "NextJS", "React"],
+    tools: ["TypeScript", "Supabase", "NextJS", "React", "TailwindCSS"],
   },
   {
     name: "Assignment Starter",

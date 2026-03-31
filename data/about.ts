@@ -17,6 +17,6 @@ export const links: DataLink[] = [
   },
   {
     label: "Resume",
-    url: "/resume-kvnbanunu.pdf",
+    url: "/kvnbanunu_resume.pdf",
   },
 ];

@@ -30,7 +30,7 @@ export const ProjectList: React.FC<{ projects: Project[] }> = ({
 
 export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
-    <Item variant="outline">
+    <Item variant="default" className="border-pal3">
       <ItemContent>
         <ItemTitle className="text-lg font-semibold">{project.name}</ItemTitle>
         <ItemDescription>{project.description}</ItemDescription>
