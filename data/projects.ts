@@ -18,7 +18,6 @@ export const projects: Project[] = [
     description:
       "Designed to let developers edit the content and styling of a React application directly within a live browser view while automatically updating the underlying code.",
     github: "https://github.com/kvnbanunu/quick-style",
-    mvp: "https://www.npmjs.com/package/quick-style-hackathon",
     npm: "https://www.npmjs.com/package/quick-style-hackathon",
     devpost: "https://devpost.com/software/quickstyle",
     tools: ["JavaScript", "TailwindCSS", "Vite", "Babel"],

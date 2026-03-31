@@ -30,7 +30,7 @@ export const ProjectList: React.FC<{ projects: Project[] }> = ({
 
 export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
-    <Item variant="default" className="border-pal3">
+    <Item variant="default" className="bg-pal4">
       <ItemContent>
         <ItemTitle className="text-lg font-semibold">{project.name}</ItemTitle>
         <ItemDescription>{project.description}</ItemDescription>
@@ -44,8 +44,19 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             </Link>
           </Button>
         )}
+        {project.devpost && (
+          <Button asChild variant="outline" className="w-20">
+            <Link
+              href={project.devpost}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Devpost
+            </Link>
+          </Button>
+        )}
         {project.github && (
-          <Button asChild className="w-20">
+          <Button asChild className="w-20 bg-pal6">
             <Link
               href={project.github}
               target="_blank"
@@ -56,7 +67,7 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           </Button>
         )}
         {project.docs && (
-          <Button asChild className="w-20">
+          <Button asChild className="w-20 bg-pal6">
             <Link href={project.docs} target="_blank" rel="noopener noreferrer">
               Docs
             </Link>

@@ -39,6 +39,8 @@ export default function Test() {
           <div className="bg-pal2">pal2</div>
           <div className="bg-pal3">pal3</div>
           <div className="bg-pal4">pal4</div>
+          <div className="bg-pal5">pal5</div>
+          <div className="bg-pal6">pal6</div>
         </div>
         <div className="border border-1 flex flex-col items-center text-center p-2">
           <div>Buttons</div>

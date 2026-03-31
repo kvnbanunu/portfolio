@@ -8,15 +8,15 @@ import { projects } from "@/data/projects";
 
 export default function Home() {
   return (
-    <div className="p-4 bg-pal4 flex flex-col gap-4">
+    <div className="flex flex-col gap-4 p-4">
       <Alert className="text-center bg-yellow-100 text-yellow-900">
         <AlertTitle>This site is under construction</AlertTitle>
       </Alert>
-      <Card className="bg-pal2">
+      <Card>
         <AboutMe />
         <LinksList links={links} />
       </Card>
-      <Card className="bg-pal2">
+      <Card>
         <CardContent>
           <ProjectList projects={projects} />
         </CardContent>

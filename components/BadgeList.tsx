@@ -32,7 +32,7 @@ export const toolBadgeColours: Record<ToolType, ToolBadgeColour> = {
   Tool: {
     border: "border-slate-900",
     bg: "bg-slate-300",
-    stroke: "text-slate",
+    stroke: "text-slate-500",
   },
 };
 

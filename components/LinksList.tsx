@@ -15,7 +15,7 @@ export const LinksList: React.FC<{ links: DataLink[] }> = ({ links }) => {
 
 const LinkComponent: React.FC<{ link: DataLink }> = ({ link }) => {
   return (
-    <Button asChild>
+    <Button asChild className="bg-pal6">
       <Link
         key={`link-${link.label}`}
         href={link.url}
