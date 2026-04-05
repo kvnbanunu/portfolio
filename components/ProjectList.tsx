@@ -16,12 +16,12 @@ export const ProjectList: React.FC<{ projects: Project[] }> = ({
   projects,
 }) => {
   return (
-    <Card>
-      <CardHeader>
+    <Card className="py-4 gap-2">
+      <CardHeader className="px-4">
         <CardTitle className="text-xl font-bold">Project List</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="flex flex-col gap-2 mt-2">
+      <CardContent className="px-4">
+        <div className="flex flex-col gap-2">
           {projects.map((p) => (
             <ProjectCard project={p} key={`project-${p.name}`} />
           ))}
@@ -66,7 +66,10 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             </Button>
           )}
           {project.github && (
-            <Button asChild className="w-20 bg-pal6">
+            <Button
+              asChild
+              className="w-20 bg-pal6 hover:border hover:border-pal6"
+            >
               <Link
                 href={project.github}
                 target="_blank"
@@ -77,7 +80,10 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             </Button>
           )}
           {project.docs && (
-            <Button asChild className="w-20 bg-pal6">
+            <Button
+              asChild
+              className="w-20 bg-pal6 hover:border hover:border-pal6"
+            >
               <Link
                 href={project.docs}
                 target="_blank"
