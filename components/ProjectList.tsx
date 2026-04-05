@@ -10,70 +10,85 @@ import {
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { BadgeList } from "./BadgeList";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 export const ProjectList: React.FC<{ projects: Project[] }> = ({
   projects,
 }) => {
   return (
-    <Item className="px-0">
-      <ItemContent>
-        <ItemTitle className="text-xl font-bold">Project List</ItemTitle>
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-xl font-bold">Project List</CardTitle>
+      </CardHeader>
+      <CardContent>
         <div className="flex flex-col gap-2 mt-2">
           {projects.map((p) => (
             <ProjectCard project={p} key={`project-${p.name}`} />
           ))}
         </div>
-      </ItemContent>
-    </Item>
+      </CardContent>
+    </Card>
   );
 };
 
 export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
     <Item variant="default" className="bg-pal4">
-      <ItemContent>
-        <ItemTitle className="text-lg font-semibold">{project.name}</ItemTitle>
-        <ItemDescription>{project.description}</ItemDescription>
-        <BadgeList tools={project.tools} />
-      </ItemContent>
-      <ItemActions>
-        {project.mvp && (
-          <Button asChild variant="outline" className="w-20">
-            <Link href={project.mvp} target="_blank" rel="noopener noreferrer">
-              Mvp
-            </Link>
-          </Button>
-        )}
-        {project.devpost && (
-          <Button asChild variant="outline" className="w-20">
-            <Link
-              href={project.devpost}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Devpost
-            </Link>
-          </Button>
-        )}
-        {project.github && (
-          <Button asChild className="w-20 bg-pal6">
-            <Link
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Github
-            </Link>
-          </Button>
-        )}
-        {project.docs && (
-          <Button asChild className="w-20 bg-pal6">
-            <Link href={project.docs} target="_blank" rel="noopener noreferrer">
-              Docs
-            </Link>
-          </Button>
-        )}
-      </ItemActions>
+      <div className="flex flex-col sm:flex-row gap-2 justify-start sm:justify-between sm:w-full">
+        <ItemContent>
+          <ItemTitle className="text-lg font-semibold">
+            {project.name}
+          </ItemTitle>
+          <ItemDescription>{project.description}</ItemDescription>
+          <BadgeList tools={project.tools} />
+        </ItemContent>
+        <ItemActions>
+          {project.mvp && (
+            <Button asChild variant="outline" className="w-20">
+              <Link
+                href={project.mvp}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Mvp
+              </Link>
+            </Button>
+          )}
+          {project.devpost && (
+            <Button asChild variant="outline" className="w-20">
+              <Link
+                href={project.devpost}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Devpost
+              </Link>
+            </Button>
+          )}
+          {project.github && (
+            <Button asChild className="w-20 bg-pal6">
+              <Link
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Github
+              </Link>
+            </Button>
+          )}
+          {project.docs && (
+            <Button asChild className="w-20 bg-pal6">
+              <Link
+                href={project.docs}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Docs
+              </Link>
+            </Button>
+          )}
+        </ItemActions>
+      </div>
     </Item>
   );
 };

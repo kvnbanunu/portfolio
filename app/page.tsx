@@ -14,11 +14,7 @@ export default function Home() {
       </div>
       <div className="flex flex-col lg:flex-row gap-4 p-4">
         <AboutMe />
-        <Card className="w-full">
-          <CardContent>
-            <ProjectList projects={projects} />
-          </CardContent>
-        </Card>
+        <ProjectList projects={projects} />
       </div>
     </div>
   );

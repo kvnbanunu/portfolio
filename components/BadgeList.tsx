@@ -4,7 +4,7 @@ import { Badge } from "./ui/badge";
 
 export const BadgeList: React.FC<{ tools: Tool[] }> = ({ tools }) => {
   return (
-    <div className="flex justify-start items-center gap-2">
+    <div className="flex flex-wrap justify-start items-center gap-2">
       {tools.map((tool: Tool) => (
         <ToolBadge key={`tool-${tool}`} tool={tool} />
       ))}

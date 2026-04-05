@@ -1,6 +1,12 @@
 import React from "react";
 import { About, links } from "@/data/about";
-import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 import { LinksList } from "./LinksList";
 
 export const AboutMe: React.FC = () => {
@@ -10,7 +16,9 @@ export const AboutMe: React.FC = () => {
         <CardTitle className="text-3xl">Kevin Van Nguyen</CardTitle>
         <CardDescription className="text-foreground">{About}</CardDescription>
       </CardHeader>
-      <LinksList links={links} />
+      <CardContent>
+        <LinksList links={links} />
+      </CardContent>
     </Card>
   );
 };
