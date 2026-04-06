@@ -13,6 +13,7 @@ import Link from "next/link";
 import { BadgeList } from "./BadgeList";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import Image from "next/image";
+import { ScrollArea } from "./ui/scroll-area";
 
 export const ProjectList: React.FC<{ projects: Project[] }> = ({
   projects,
@@ -25,11 +26,13 @@ export const ProjectList: React.FC<{ projects: Project[] }> = ({
         </CardTitle>
       </CardHeader>
       <CardContent className="px-4">
-        <div className="flex flex-col gap-2">
-          {projects.map((p) => (
-            <ProjectCard project={p} key={`project-${p.name}`} />
-          ))}
-        </div>
+        <ScrollArea className="h-full md:h-134 lg:h-192">
+          <div className="flex flex-col gap-2">
+            {projects.map((p) => (
+              <ProjectCard project={p} key={`project-${p.name}`} />
+            ))}
+          </div>
+        </ScrollArea>
       </CardContent>
     </Card>
   );

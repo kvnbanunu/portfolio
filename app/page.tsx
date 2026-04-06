@@ -1,7 +1,6 @@
 import { AboutMe } from "@/components/AboutMe";
 import { ProjectList } from "@/components/ProjectList";
 import { Alert, AlertTitle } from "@/components/ui/alert";
-import { Card, CardContent } from "@/components/ui/card";
 import { projects } from "@/data/projects";
 
 export default function Home() {
