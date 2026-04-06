@@ -21,6 +21,7 @@ export const projects: Project[] = [
     npm: "https://www.npmjs.com/package/quick-style-hackathon",
     devpost: "https://devpost.com/software/quickstyle",
     tools: ["JavaScript", "TailwindCSS", "Vite", "Babel"],
+    thumbnail: "/thumbnails/quickstyle-main.png",
   },
   {
     name: "DBTUI",
@@ -28,6 +29,7 @@ export const projects: Project[] = [
     github: "https://github.com/kvnbanunu/dbtui",
     devpost: "https://devpost.com/software/dbtui",
     tools: ["Go", "Bubbletea", "SQLite"],
+    thumbnail: "/thumbnails/dbtui-main.png",
   },
   {
     name: "Flynt",
@@ -36,6 +38,7 @@ export const projects: Project[] = [
     github: "https://github.com/kvnbanunu/flynt",
     mvp: "https://flyntapp.io",
     tools: ["Go", "TypeScript", "SQLite", "NextJS", "React", "TailwindCSS"],
+    thumbnail: "/thumbnails/flynt-main.png",
   },
   {
     name: "Habibi's Mediterranean Foods",
