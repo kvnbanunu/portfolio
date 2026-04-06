@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 
 export const LinksList: React.FC<{ links: DataLink[] }> = ({ links }) => {
   return (
-    <div className="flex justify-center gap-2">
+    <div className="flex justify-center lg:justify-start gap-2">
       {links.map((link: DataLink) => (
         <LinkComponent key={link.label} link={link} />
       ))}

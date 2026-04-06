@@ -18,7 +18,9 @@ export const ProjectList: React.FC<{ projects: Project[] }> = ({
   return (
     <Card className="py-4 gap-2">
       <CardHeader className="px-4">
-        <CardTitle className="text-xl font-bold">Project List</CardTitle>
+        <CardTitle className="text-xl font-bold text-center lg:text-start">
+          Project List
+        </CardTitle>
       </CardHeader>
       <CardContent className="px-4">
         <div className="flex flex-col gap-2">

@@ -13,7 +13,9 @@ export const AboutMe: React.FC = () => {
   return (
     <Card className="w-full py-4 lg:w-3xl">
       <CardHeader className="px-4">
-        <CardTitle className="text-3xl">Kevin Van Nguyen</CardTitle>
+        <CardTitle className="text-3xl text-center lg:text-start">
+          Kevin Van Nguyen
+        </CardTitle>
         <CardDescription className="text-foreground">{About}</CardDescription>
       </CardHeader>
       <CardContent className="px-4">
