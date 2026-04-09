@@ -33,7 +33,7 @@ export default function Test() {
   return (
     <div className="h-full w-screen">
       <div className="h-full flex flex-col justify-around m-8 gap-4">
-        <div className="border border-1 flex flex-col text-center p-2">
+        <div className="border-1 flex flex-col text-center p-2">
           <div>Colour palette</div>
           <div className="bg-pal1">pal1</div>
           <div className="bg-pal2">pal2</div>
@@ -42,7 +42,7 @@ export default function Test() {
           <div className="bg-pal5">pal5</div>
           <div className="bg-pal6">pal6</div>
         </div>
-        <div className="border border-1 flex flex-col items-center text-center p-2">
+        <div className="border-1 flex flex-col items-center text-center p-2">
           <div>Buttons</div>
           <div className="flex justify-between gap-2">
             <Button>Default</Button>
@@ -53,7 +53,7 @@ export default function Test() {
             <Button variant="destructive">Destructive</Button>
           </div>
         </div>
-        <div className="border border-1 flex flex-col items-center text-center p-2">
+        <div className="border-1 flex flex-col items-center text-center p-2">
           <div>Badges</div>
           <div className="flex justify-between gap-2">
             <Badge>Default</Badge>
@@ -104,7 +104,7 @@ export default function Test() {
             </a>
           </Item>
         </div>
-        <div className="border border-1 flex flex-col items-center p-2">
+        <div className="border-1 flex flex-col items-center p-2">
           <div>Carousel</div>
           <Carousel
             className="w-full max-w-[24rem] md:max-w-md"
@@ -115,7 +115,7 @@ export default function Test() {
                 <CarouselItem key={index} className="basis-1/3">
                   <div className="p-1">
                     <Card>
-                      <CardContent className="border border-1 flex aspect-square items-center justify-center p-6">
+                      <CardContent className="border-1 flex aspect-square items-center justify-center p-6">
                         <span className="text-4xl font-semibold">
                           {index + 1}
                         </span>

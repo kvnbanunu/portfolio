@@ -9,6 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.2.0",
+    "@fortawesome/free-brands-svg-icons": "^7.2.0",
+    "@fortawesome/react-fontawesome": "^3.3.0",
     "@radix-ui/react-scroll-area": "^1.2.10",
     "@radix-ui/react-separator": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
@@ -17,9 +20,11 @@
     "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.544.0",
     "next": "^16.0.7",
+    "radix-ui": "^1.4.3",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
-    "tailwind-merge": "^3.3.1"
+    "tailwind-merge": "^3.3.1",
+    "use-sound": "^5.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
