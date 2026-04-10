@@ -46,7 +46,8 @@ export const Sfx: React.FC<{
 
 export const SfxDialog: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
-  const { on, vol, toggleOn, adjustVol, reset } = useSfx();
+  const { sfxOn, bgmOn, vol, toggleSfx, toggleBgm, adjustVol, reset, play } =
+    useSfx();
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <form>
@@ -61,9 +62,25 @@ export const SfxDialog: React.FC = () => {
 
           <FieldGroup>
             <Field orientation="horizontal">
-              <FieldLabel htmlFor="sound">Sound Effects</FieldLabel>
+              <FieldLabel htmlFor="sfx">Sound Effects</FieldLabel>
               <Sfx>
-                <Checkbox id="sound" checked={on} onCheckedChange={toggleOn} />
+                <Checkbox
+                  id="sfx"
+                  checked={sfxOn}
+                  onCheckedChange={toggleSfx}
+                  className="hover:cursor-pointer"
+                />
+              </Sfx>
+            </Field>
+            <Field orientation="horizontal">
+              <FieldLabel htmlFor="bgm">Background Music</FieldLabel>
+              <Sfx>
+                <Checkbox
+                  id="bgm"
+                  checked={bgmOn}
+                  onCheckedChange={toggleBgm}
+                  className="hover:cursor-pointer"
+                />
               </Sfx>
             </Field>
             <Field orientation="horizontal">
@@ -91,7 +108,12 @@ export const SfxDialog: React.FC = () => {
             </Sfx>
             <Sfx click="save">
               <DialogClose asChild>
-                <Button className="bg-pal6 hover:border hover:cursor-pointer">
+                <Button
+                  className="bg-pal6 hover:border hover:cursor-pointer"
+                  onClick={() => {
+                    if (bgmOn) play("bgm");
+                  }}
+                >
                   Save
                 </Button>
               </DialogClose>

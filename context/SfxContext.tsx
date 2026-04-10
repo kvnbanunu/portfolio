@@ -2,23 +2,32 @@
 import React, { createContext, useContext, useState } from "react";
 import useSound from "use-sound";
 
-type PlayFunction = ReturnType<typeof useSound>[0];
-
-export type SfxKey = "hover" | "select" | "cancel" | "save" | "get" | "error";
+export type SfxKey =
+  | "hover"
+  | "select"
+  | "cancel"
+  | "save"
+  | "get"
+  | "error"
+  | "bgm";
 
 interface SfxContextType {
-  on: boolean;
+  sfxOn: boolean;
+  bgmOn: boolean;
   vol: number;
-  toggleOn: () => void;
+  toggleSfx: () => void;
+  toggleBgm: () => void;
   adjustVol: (amount: number[]) => void;
   reset: () => void;
   play: (key: SfxKey) => void;
 }
 
 const defaultValues: SfxContextType = {
-  on: true,
+  sfxOn: true,
+  bgmOn: true,
   vol: 0.25,
-  toggleOn: () => {},
+  toggleSfx: () => {},
+  toggleBgm: () => {},
   adjustVol: () => {},
   reset: () => {},
   play: () => {},
@@ -26,50 +35,52 @@ const defaultValues: SfxContextType = {
 
 const SfxContext = createContext<SfxContextType>(defaultValues);
 
-const safe = (fn: PlayFunction | undefined): (() => void) => {
-  return () => fn?.();
-};
-
 export const SfxProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [on, setOn] = useState<boolean>(defaultValues.on);
+  const [sfxOn, setSfxOn] = useState<boolean>(defaultValues.sfxOn);
+  const [bgmOn, setBgmOn] = useState<boolean>(defaultValues.bgmOn);
   const [vol, setVol] = useState<number>(defaultValues.vol);
-  const [hoverRaw] = useSound("/sfx/cursor_move.mp3", { volume: vol });
-  const [selectRaw] = useSound("/sfx/select.mp3", { volume: vol });
-  const [cancelRaw] = useSound("/sfx/cancel.mp3", { volume: vol });
-  const [saveRaw] = useSound("/sfx/save_load.mp3", { volume: vol });
-  const [getRaw] = useSound("/sfx/item_get.mp3", { volume: vol });
-  const [errorRaw] = useSound("/sfx/error_select.mp3", { volume: vol });
-
-  const soundMap: Record<SfxKey, PlayFunction | undefined> = {
-    hover: hoverRaw,
-    select: selectRaw,
-    cancel: cancelRaw,
-    save: saveRaw,
-    get: getRaw,
-    error: errorRaw,
-  };
+  const [playHover] = useSound("/sfx/cursor_move.mp3", { volume: vol });
+  const [playSelect] = useSound("/sfx/select.mp3", { volume: vol });
+  const [playCancel] = useSound("/sfx/cancel.mp3", { volume: vol });
+  const [playSave] = useSound("/sfx/save_load.mp3", { volume: vol });
+  const [playGet] = useSound("/sfx/item_get.mp3", { volume: vol });
+  const [playError] = useSound("/sfx/error_select.mp3", { volume: vol });
+  const [playBgm, { stop }] = useSound("/sfx/dearly_beloved.mp3", {
+    volume: vol,
+    loop: true,
+  });
 
   const sounds: Record<SfxKey, () => void> = {
-    hover: safe(soundMap.hover),
-    select: safe(soundMap.select),
-    cancel: safe(soundMap.cancel),
-    save: safe(soundMap.save),
-    get: safe(soundMap.get),
-    error: safe(soundMap.error),
+    hover: playHover,
+    select: playSelect,
+    cancel: playCancel,
+    save: playSave,
+    get: playGet,
+    error: playError,
+    bgm: playBgm,
   };
 
   const play = (key: SfxKey) => {
-    if (on) sounds[key]();
+    if (sfxOn) sounds[key]();
   };
 
-  const toggleOn = () => {
-    setOn((prev) => {
+  const toggleSfx = () => {
+    setSfxOn((prev) => {
       const next = !prev;
       if (!prev) sounds.select();
       return next;
     });
+  };
+
+  const toggleBgm = () => {
+    if (!bgmOn) {
+      setBgmOn(true);
+    } else {
+      setBgmOn(false);
+      stop();
+    }
   };
 
   const adjustVol = (amount: number[]) => {
@@ -78,20 +89,23 @@ export const SfxProvider: React.FC<{ children: React.ReactNode }> = ({
     if (v < 0) v = 0;
 
     setVol(v);
-    if (on) sounds.hover();
+    if (sfxOn) sounds.hover();
   };
 
   const reset = () => {
-    setOn(defaultValues.on);
+    setSfxOn(defaultValues.sfxOn);
     setVol(defaultValues.vol);
+    setBgmOn(defaultValues.bgmOn);
   };
 
   return (
     <SfxContext.Provider
       value={{
-        on,
+        sfxOn,
+        bgmOn,
         vol,
-        toggleOn,
+        toggleSfx,
+        toggleBgm,
         adjustVol,
         reset,
         play,
