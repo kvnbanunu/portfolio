@@ -1,18 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "./ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 import { FileText } from "lucide-react";
-import { SfxButton } from "@/components/Sfx";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "./ui/dialog";
+import { Sfx, SfxDialog } from "@/components/Sfx";
 
 export const Headline: React.FC = () => {
   return (
@@ -23,24 +16,8 @@ export const Headline: React.FC = () => {
         experience
       </p>
       <Socials />
-      <SoundDialog />
+      <SfxDialog />
     </div>
-  );
-};
-
-const SoundDialog: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
-  return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <form>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Sound Warning</DialogTitle>
-            <DialogDescription></DialogDescription>
-          </DialogHeader>
-        </DialogContent>
-      </form>
-    </Dialog>
   );
 };
 
@@ -56,11 +33,11 @@ const Socials: React.FC = () => {
       <SocialButton href="/kvnbanunu_resume.pdf">
         <FileText />
       </SocialButton>
-      <SfxButton sound="error">
+      <Sfx click="error">
         <Button asChild className="bg-pal6">
           <Link href="#">Test</Link>
         </Button>
-      </SfxButton>
+      </Sfx>
     </div>
   );
 };
@@ -70,12 +47,12 @@ const SocialButton: React.FC<{ href: string; children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <SfxButton>
+    <Sfx click="select">
       <Button asChild size="icon-lg">
         <Link href={href} target="_blank" rel="noopener noreferrer">
           {children}
         </Link>
       </Button>
-    </SfxButton>
+    </Sfx>
   );
 };
