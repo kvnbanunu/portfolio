@@ -44,7 +44,7 @@ export const Sfx: React.FC<{
   );
 };
 
-export const SfxDialog: React.FC = () => {
+export const SfxSettings: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const { sfxOn, bgmOn, vol, toggleSfx, toggleBgm, adjustVol, reset, play } =
     useSfx();
@@ -53,10 +53,12 @@ export const SfxDialog: React.FC = () => {
       <form>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Welcome to banunu.dev</DialogTitle>
+            <DialogTitle>Sound Settings</DialogTitle>
             <DialogDescription>
-              I've added sound effects to this site. Please adjust your
-              settings.
+              Welcome to banunu.dev!
+              <br />
+              I've added sound effects to this site. Please adjust your settings
+              accordingly.
             </DialogDescription>
           </DialogHeader>
 

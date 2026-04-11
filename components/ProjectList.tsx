@@ -58,6 +58,7 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                 width={160}
                 height={90}
                 alt={project.name}
+                loading="eager"
               />
             </ItemMedia>
           )}

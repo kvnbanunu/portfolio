@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 import { FileText } from "lucide-react";
-import { Sfx, SfxDialog } from "@/components/Sfx";
+import { Sfx, SfxSettings } from "@/components/Sfx";
 
 export const Headline: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ export const Headline: React.FC = () => {
         experience
       </p>
       <Socials />
-      <SfxDialog />
+      <SfxSettings />
     </div>
   );
 };
