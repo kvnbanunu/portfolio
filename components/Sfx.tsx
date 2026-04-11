@@ -20,6 +20,8 @@ export const Sfx: React.FC<{
   click?: SfxKey;
   up?: SfxKey;
   down?: SfxKey;
+  toggleOn?: SfxKey;
+  toggleOff?: SfxKey;
   children: React.ReactNode;
 }> = ({ click, up, down, children }) => {
   const { play } = useSfx();

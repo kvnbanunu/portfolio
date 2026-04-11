@@ -23,12 +23,22 @@ export const Settings: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const { sfxOn, bgmOn, vol, toggleSfx, toggleBgm, adjustVol, reset, play } =
     useSfx();
+
+  const onOpenChange = (open: boolean) => {
+    if (!open) play("bgm");
+    setIsOpen(open);
+  };
+
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <form>
         <DialogTrigger>
-          <Sfx>
-            <Button asChild size="icon-lg">
+          <Sfx click="select">
+            <Button
+              asChild
+              size="icon-lg"
+              className="fixed top-4 right-4 px-1 rounded-full bg-pal4 text-center hover:cursor-pointer"
+            >
               <SettingsIcon />
             </Button>
           </Sfx>
@@ -38,12 +48,12 @@ export const Settings: React.FC = () => {
           className="bg-transparent border-none justify-center"
         >
           <div className="flex flex-col gap-4 items-center">
-            <div className="p-0.5 rounded-2xl bg-linear-to-t from-slate-950 to-white">
+            <div className="p-1 rounded-2xl bg-radial-[at_40%_20%] from-white to-slate-950 to-75%">
               <div className="py-1 px-12 rounded-2xl bg-indigo-950 text-center">
                 SOUND SETTINGS
               </div>
             </div>
-            <div className="p-0.5 rounded-2xl bg-linear-to-t from-slate-950 to-white from-90%">
+            <div className="p-1 rounded-2xl bg-radial-[at_40%_20%] from-white to-slate-950 to-75%">
               <div className="flex flex-col items-center gap-4 p-4 rounded-2xl bg-linear-to-t from-indigo-950 from-40% to-slate-900 to-80%">
                 <DialogHeader>
                   <DialogTitle className="py-2 w-sm rounded bg-linear-to-t from-indigo-900 to-slate-900 text-center">
@@ -71,7 +81,7 @@ export const Settings: React.FC = () => {
                     className="py-1 px-8 rounded-lg bg-linear-to-t from-black from-90% to-white"
                   >
                     <FieldLabel htmlFor="bgm">Background Music</FieldLabel>
-                    <Sfx>
+                    <Sfx click="select">
                       <Checkbox
                         id="bgm"
                         checked={bgmOn}

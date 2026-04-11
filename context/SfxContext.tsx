@@ -14,6 +14,7 @@ export type SfxKey =
 interface SfxContextType {
   sfxOn: boolean;
   bgmOn: boolean;
+  bgmPlaying: boolean;
   vol: number;
   toggleSfx: () => void;
   toggleBgm: () => void;
@@ -25,6 +26,7 @@ interface SfxContextType {
 const defaultValues: SfxContextType = {
   sfxOn: true,
   bgmOn: true,
+  bgmPlaying: false,
   vol: 0.25,
   toggleSfx: () => {},
   toggleBgm: () => {},
@@ -40,6 +42,9 @@ export const SfxProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [sfxOn, setSfxOn] = useState<boolean>(defaultValues.sfxOn);
   const [bgmOn, setBgmOn] = useState<boolean>(defaultValues.bgmOn);
+  const [bgmPlaying, setBgmPlaying] = useState<boolean>(
+    defaultValues.bgmPlaying,
+  );
   const [vol, setVol] = useState<number>(defaultValues.vol);
   const [playHover] = useSound("/sfx/cursor_move.mp3", { volume: vol });
   const [playSelect] = useSound("/sfx/select.mp3", { volume: vol });
@@ -63,7 +68,9 @@ export const SfxProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const play = (key: SfxKey) => {
+    if (key === "bgm" && bgmPlaying) return;
     if (sfxOn) sounds[key]();
+    if (key === "bgm") setBgmPlaying(true);
   };
 
   const toggleSfx = () => {
@@ -78,8 +85,9 @@ export const SfxProvider: React.FC<{ children: React.ReactNode }> = ({
     if (!bgmOn) {
       setBgmOn(true);
     } else {
-      setBgmOn(false);
       stop();
+      setBgmOn(false);
+      setBgmPlaying(false);
     }
   };
 
@@ -103,6 +111,7 @@ export const SfxProvider: React.FC<{ children: React.ReactNode }> = ({
       value={{
         sfxOn,
         bgmOn,
+        bgmPlaying,
         vol,
         toggleSfx,
         toggleBgm,
