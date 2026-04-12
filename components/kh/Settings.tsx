@@ -48,15 +48,15 @@ export const Settings: React.FC = () => {
           className="bg-transparent border-none justify-center"
         >
           <div className="flex flex-col gap-4 items-center">
-            <div className="p-1 rounded-2xl bg-radial-[at_40%_20%] from-white to-slate-950 to-75%">
-              <div className="py-1 px-12 rounded-2xl bg-indigo-950 text-center">
+            <GradientBorder bottom="khd-base" top="khd-grad" radius="lg">
+              <div className="py-1 px-12 rounded-lg bg-linear-to-t from-khd-base to-khd-grad text-center">
                 SOUND SETTINGS
               </div>
-            </div>
-            <div className="p-1 rounded-2xl bg-radial-[at_40%_20%] from-white to-slate-950 to-75%">
-              <div className="flex flex-col items-center gap-4 p-4 rounded-2xl bg-linear-to-t from-indigo-950 from-40% to-slate-900 to-80%">
+            </GradientBorder>
+            <GradientBorder bottom="khd-base" top="khd-grad" radius="2xl">
+              <div className="flex flex-col items-center gap-4 p-4 rounded-2xl bg-linear-to-t from-khd-base to-khd-grad">
                 <DialogHeader>
-                  <DialogTitle className="py-2 w-sm rounded bg-linear-to-t from-indigo-900 to-slate-900 text-center">
+                  <DialogTitle className="py-2 w-sm rounded bg-linear-to-t from-khd-highlight to-khd-grad text-center">
                     Welcome to banunu.dev
                   </DialogTitle>
                 </DialogHeader>
@@ -140,10 +140,35 @@ export const Settings: React.FC = () => {
                   </div>
                 </DialogFooter>
               </div>
-            </div>
+            </GradientBorder>
           </div>
         </DialogContent>
       </form>
     </Dialog>
+  );
+};
+
+const GradientBorder: React.FC<{
+  bottom: string;
+  top: string;
+  radius?: string;
+  children: React.ReactNode;
+}> = ({ bottom, top, radius, children }) => {
+  const rounding = radius ? `rounded-${radius}` : "rounded";
+
+  return (
+    <div
+      className={`pl-0.5 pr-1 pb-1 ${rounding} shadow-[inset_-1px_-2px_4px_rgba(0,0,0,0.9)] bg-linear-to-t from-${bottom} to-${top}`}
+    >
+      <div
+        className={`pt-1 ${rounding} bg-radial-[at_40%_-50%] from-zinc-300 to-transparent from-40% to-70%`}
+      >
+        <div
+          className={`pl-0.5 ${rounding} bg-radial-[at_0%_25%] from-zinc-600 to-transparent from-50% to-65%`}
+        >
+          {children}
+        </div>
+      </div>
+    </div>
   );
 };

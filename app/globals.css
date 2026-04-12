@@ -10,6 +10,12 @@
   --color-pal4: oklch(0.3359 0.0541 283.1);
   --color-pal5: oklch(0.4023 0.0556 279.58);
   --color-pal6: oklch(0.5004 0.1665 283.54);
+  --color-khd-black: #010111;
+  --color-khd-base: #020040;
+  --color-khd-highlight: #090075;
+  --color-khd-grad: #010020;
+  --color-khd-selhigh: #440900;
+  --color-khd-selgrad: #2a0400;
 }
 
 @theme inline {

@@ -68,7 +68,7 @@ export const SfxProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const play = (key: SfxKey) => {
-    if (key === "bgm" && bgmPlaying) return;
+    if (key === "bgm" && (bgmPlaying || !bgmOn)) return;
     if (sfxOn) sounds[key]();
     if (key === "bgm") setBgmPlaying(true);
   };
