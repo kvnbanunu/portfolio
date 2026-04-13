@@ -18,6 +18,8 @@ import {
 import { Sfx } from "@/components/Sfx";
 import { SettingsIcon } from "lucide-react";
 import { Separator } from "../ui/separator";
+import { HighlightBorder } from "@/components/kh/shared/HighlightBorder";
+import { DiamondContainer } from "./shared/DiamondContainer";
 
 export const Settings: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
@@ -48,25 +50,34 @@ export const Settings: React.FC = () => {
           className="bg-transparent border-none justify-center"
         >
           <div className="flex flex-col gap-4 items-center">
-            <GradientBorder bottom="khd-base" top="khd-grad" radius="lg">
-              <div className="py-1 px-12 rounded-lg bg-linear-to-t from-khd-base to-khd-grad text-center">
+            <HighlightBorder
+              shape="diamond"
+              gradient
+              base="khd-base"
+              grad="khd-grad"
+            >
+              <DiamondContainer className="py-1 px-24 bg-linear-to-t from-khd-base to-khd-grad text-sky-400 font-black text-shadow-lg/30 text-md">
                 SOUND SETTINGS
-              </div>
-            </GradientBorder>
-            <GradientBorder bottom="khd-base" top="khd-grad" radius="2xl">
-              <div className="flex flex-col items-center gap-4 p-4 rounded-2xl bg-linear-to-t from-khd-base to-khd-grad">
+              </DiamondContainer>
+            </HighlightBorder>
+            <HighlightBorder
+              gradient
+              base="khd-base"
+              grad="khd-grad"
+              rounding="2xl"
+            >
+              <div className="flex flex-col items-center gap-4 p-4 min-w-xl rounded-2xl bg-linear-to-t from-khd-base to-khd-grad">
                 <DialogHeader>
-                  <DialogTitle className="py-2 w-sm rounded bg-linear-to-t from-khd-highlight to-khd-grad text-center">
+                  <DialogTitle className="py-2 w-sm rounded bg-linear-to-t from-khd-highlight to-khd-grad font-bold text-shadow-lg/30 text-center">
                     Welcome to banunu.dev
                   </DialogTitle>
                 </DialogHeader>
 
                 <FieldGroup className="px-16 gap-2">
-                  <Field
-                    orientation="horizontal"
-                    className="py-1 px-8 rounded-lg bg-linear-to-t from-black from-90% to-white"
-                  >
-                    <FieldLabel htmlFor="sfx">Sound Effects</FieldLabel>
+                  <Option>
+                    <FieldLabel htmlFor="sfx" className="font-bold">
+                      Sound Effects
+                    </FieldLabel>
                     <Sfx>
                       <Checkbox
                         id="sfx"
@@ -75,12 +86,11 @@ export const Settings: React.FC = () => {
                         className="hover:cursor-pointer"
                       />
                     </Sfx>
-                  </Field>
-                  <Field
-                    orientation="horizontal"
-                    className="py-1 px-8 rounded-lg bg-linear-to-t from-black from-90% to-white"
-                  >
-                    <FieldLabel htmlFor="bgm">Background Music</FieldLabel>
+                  </Option>
+                  <Option>
+                    <FieldLabel htmlFor="bgm" className="font-bold">
+                      Background Music
+                    </FieldLabel>
                     <Sfx click="select">
                       <Checkbox
                         id="bgm"
@@ -89,12 +99,11 @@ export const Settings: React.FC = () => {
                         className="hover:cursor-pointer"
                       />
                     </Sfx>
-                  </Field>
-                  <Field
-                    orientation="horizontal"
-                    className="py-1 px-8 rounded-lg bg-linear-to-t from-black from-90% to-white"
-                  >
-                    <FieldLabel htmlFor="volume">Volume</FieldLabel>
+                  </Option>
+                  <Option>
+                    <FieldLabel htmlFor="volume" className="font-bold">
+                      Volume
+                    </FieldLabel>
                     <Slider
                       id="volume"
                       value={[vol]}
@@ -104,12 +113,12 @@ export const Settings: React.FC = () => {
                       step={0.05}
                       className="hover:cursor-pointer"
                     />
-                  </Field>
+                  </Option>
                 </FieldGroup>
+                <div className="h-1 w-full bg-linear-to-r from-transparent via-khd-highlight to-transparent"></div>
                 <DialogFooter>
                   <div className="flex flex-col gap-2">
-                    <Separator />
-                    <DialogDescription className="min-w-md mb-4 text-center text-sky-400 text-md">
+                    <DialogDescription className="min-w-md mb-4 text-center text-sky-400 text-md font-bold">
                       I've added sound effects to this site.
                       <br />
                       Please adjust your settings accordingly.
@@ -140,7 +149,7 @@ export const Settings: React.FC = () => {
                   </div>
                 </DialogFooter>
               </div>
-            </GradientBorder>
+            </HighlightBorder>
           </div>
         </DialogContent>
       </form>
@@ -148,27 +157,13 @@ export const Settings: React.FC = () => {
   );
 };
 
-const GradientBorder: React.FC<{
-  bottom: string;
-  top: string;
-  radius?: string;
-  children: React.ReactNode;
-}> = ({ bottom, top, radius, children }) => {
-  const rounding = radius ? `rounded-${radius}` : "rounded";
-
+const Option: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div
-      className={`pl-0.5 pr-1 pb-1 ${rounding} shadow-[inset_-1px_-2px_4px_rgba(0,0,0,0.9)] bg-linear-to-t from-${bottom} to-${top}`}
+    <Field
+      orientation="horizontal"
+      className="py-1 px-8 rounded-full bg-linear-to-t from-black from-90% to-white"
     >
-      <div
-        className={`pt-1 ${rounding} bg-radial-[at_40%_-50%] from-zinc-300 to-transparent from-40% to-70%`}
-      >
-        <div
-          className={`pl-0.5 ${rounding} bg-radial-[at_0%_25%] from-zinc-600 to-transparent from-50% to-65%`}
-        >
-          {children}
-        </div>
-      </div>
-    </div>
+      {children}
+    </Field>
   );
 };
