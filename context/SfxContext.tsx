@@ -1,5 +1,11 @@
 "use client";
-import React, { createContext, useContext, useState } from "react";
+import React, {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
 import useSound from "use-sound";
 
 export type SfxKey =
@@ -12,10 +18,12 @@ export type SfxKey =
   | "bgm";
 
 interface SfxContextType {
+  init: boolean;
   sfxOn: boolean;
   bgmOn: boolean;
   bgmPlaying: boolean;
   vol: number;
+  setInit: Dispatch<SetStateAction<boolean>>;
   toggleSfx: () => void;
   toggleBgm: () => void;
   adjustVol: (amount: number[]) => void;
@@ -24,10 +32,12 @@ interface SfxContextType {
 }
 
 const defaultValues: SfxContextType = {
+  init: false,
   sfxOn: true,
   bgmOn: true,
   bgmPlaying: false,
-  vol: 0.25,
+  vol: 0,
+  setInit: () => {},
   toggleSfx: () => {},
   toggleBgm: () => {},
   adjustVol: () => {},
@@ -40,6 +50,7 @@ const SfxContext = createContext<SfxContextType>(defaultValues);
 export const SfxProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  const [init, setInit] = useState<boolean>(defaultValues.init);
   const [sfxOn, setSfxOn] = useState<boolean>(defaultValues.sfxOn);
   const [bgmOn, setBgmOn] = useState<boolean>(defaultValues.bgmOn);
   const [bgmPlaying, setBgmPlaying] = useState<boolean>(
@@ -109,6 +120,8 @@ export const SfxProvider: React.FC<{ children: React.ReactNode }> = ({
   return (
     <SfxContext.Provider
       value={{
+        init,
+        setInit,
         sfxOn,
         bgmOn,
         bgmPlaying,

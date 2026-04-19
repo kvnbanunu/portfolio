@@ -31,37 +31,44 @@ export const HighlightBorder: React.FC<{
   return (
     <Comp
       className={cn(
-        "pb-1 pr-1",
-        shape === "square"
-          ? `pl-0.5 shadow-[inset_-1px_-2px_4px_rgba(0,0,0,0.9)]`
-          : "pl-0",
-        gradient
-          ? shape === "square"
-            ? `bg-linear-to-t from-${base} to-${grad}`
-            : `bg-linear-to-br from-${base} to-${grad}`
-          : `bg-${base}`,
+        shape === "square" ? "shadow-lg/50" : "shadow-none",
         radius,
-        className,
       )}
     >
-      <div
+      <Comp
         className={cn(
-          `pt-1 bg-radial-[at_40%_-50%] from-zinc-300 to-transparent from-40% to-70%`,
+          "pb-1 pr-1",
+          shape === "square"
+            ? "pl-0.5 shadow-[inset_-1px_-2px_4px_rgba(0,0,0,0.9)]"
+            : "pl-0",
+          gradient
+            ? shape === "square"
+              ? `bg-linear-to-t from-${base} to-${grad}`
+              : `bg-linear-to-br from-${base} to-${grad}`
+            : `bg-${base}`,
           radius,
+          className,
         )}
       >
-        <Comp
+        <div
           className={cn(
-            "bg-radial-[at_0%_25%] from-zinc-600 to-transparent",
-            shape === "square"
-              ? `pl-0.5 from-50% to-65%`
-              : "pl-1 from-0% to-25%",
+            `pt-1 bg-radial-[at_40%_-50%] from-zinc-300 to-transparent from-40% to-70%`,
             radius,
           )}
         >
-          {children}
-        </Comp>
-      </div>
+          <Comp
+            className={cn(
+              "bg-radial-[at_0%_25%] from-zinc-600 to-transparent",
+              shape === "square"
+                ? `pl-0.5 from-50% to-65%`
+                : "pl-1 from-0% to-25%",
+              radius,
+            )}
+          >
+            {children}
+          </Comp>
+        </div>
+      </Comp>
     </Comp>
   );
 };

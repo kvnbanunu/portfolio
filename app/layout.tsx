@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${orbitron.variable} ${geistMono.variable} font-orbitron antialiased dark`}
+        className={`${orbitron.variable} ${geistMono.variable} font-orbitron antialiased`}
       >
         <SfxProvider>{children}</SfxProvider>
       </body>
