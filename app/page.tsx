@@ -1,5 +1,4 @@
 import { AboutMe } from "@/components/AboutMe";
-import { Settings } from "@/components/kh/Settings";
 import { ProjectList } from "@/components/ProjectList";
 import { Alert, AlertTitle } from "@/components/ui/alert";
 import { projects } from "@/data/projects";
@@ -11,7 +10,6 @@ export default function Home() {
         <Alert className="text-center bg-yellow-100 text-yellow-900">
           <AlertTitle>This site is under construction</AlertTitle>
         </Alert>
-        <Settings />
       </div>
       <div className="flex flex-col lg:flex-row gap-4 p-4">
         <AboutMe />

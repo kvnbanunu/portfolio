@@ -1,14 +1,5 @@
-import { Settings } from "@/components/kh/Settings";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { MainMenu } from "@/components/kh/MainMenu";
 
 export default function Home() {
-  return (
-    <div className="h-screen w-screen bg-white">
-      <Button asChild className="bg-khd-base">
-        <Link href="/">Home</Link>
-      </Button>
-      <Settings />
-    </div>
-  );
+  return <MainMenu />;
 }
