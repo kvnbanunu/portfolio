@@ -3,7 +3,6 @@ import { Geist_Mono } from "next/font/google";
 import { Orbitron } from "next/font/google";
 import "./globals.css";
 import { SfxProvider } from "@/context/SfxContext";
-import { Settings } from "@/components/kh/Settings";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -31,10 +30,7 @@ export default function RootLayout({
       <body
         className={`${orbitron.variable} ${geistMono.variable} font-orbitron antialiased`}
       >
-        <SfxProvider>
-          {children}
-          <Settings />
-        </SfxProvider>
+        <SfxProvider>{children}</SfxProvider>
       </body>
     </html>
   );

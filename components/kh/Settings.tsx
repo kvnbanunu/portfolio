@@ -4,7 +4,6 @@ import { useSfx } from "@/context/SfxContext";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -16,11 +15,13 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Sfx } from "@/components/Sfx";
-import { SettingsIcon } from "lucide-react";
 import { HighlightBorder } from "@/components/kh/shared/HighlightBorder";
 import { DiamondContainer } from "./shared/DiamondContainer";
 import { buttonStyle, textSize } from "../Styles";
 import { cn } from "@/lib/utils";
+import { HoverDot } from "./shared/HoverDot";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 
 export const Settings: React.FC = () => {
   const {
@@ -45,17 +46,22 @@ export const Settings: React.FC = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogTrigger>
-        <Sfx click="select">
-          <Button
-            asChild
-            size="icon-lg"
-            className="fixed top-4 right-4 px-1 rounded-full bg-pal4 text-center hover:cursor-pointer"
+      <Sfx click="select">
+        <DialogTrigger asChild>
+          <button
+            className={cn(
+              "p-1 px-4 rounded-full border-2 hover:border-khd-highlight/50 bg-white/50 hover:bg-white/80 text-khd-highlight text-center hover:cursor-pointer group relative font-bold",
+              textSize.title,
+            )}
           >
-            <SettingsIcon />
-          </Button>
-        </Sfx>
-      </DialogTrigger>
+            <FontAwesomeIcon icon={faGear} />
+            <span className={cn("pl-1 align-text-top", textSize.normal)}>
+              Sound Settings
+            </span>
+            <HoverDot />
+          </button>
+        </DialogTrigger>
+      </Sfx>
       <DialogContent
         showCloseButton={false}
         className="bg-transparent border-none shadow-none justify-center"
@@ -86,7 +92,7 @@ export const Settings: React.FC = () => {
               <DialogHeader>
                 <DialogTitle
                   className={cn(
-                    "py-1 lg:p-2 w-88 sm:w-md md:w-lg lg:w-3xl rounded bg-linear-to-t from-khd-highlight to-khd-grad font-bold text-shadow-lg/30 text-center",
+                    "py-1 lg:p-2 w-88 sm:w-md md:w-lg lg:w-3xl rounded bg-linear-to-t from-khd-highlight to-khd-grad font-bold text-shadow-lg/30 text-center text-white",
                     textSize.title,
                   )}
                 >
@@ -206,11 +212,5 @@ const Option: React.FC<{
       {children}
       <HoverDot />
     </Field>
-  );
-};
-
-const HoverDot = () => {
-  return (
-    <div className="absolute -top-1 -right-1 size-3 md:size-4 lg:size-6 bg-radial from-white from-10% via-amber-500 via-40% to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
   );
 };
