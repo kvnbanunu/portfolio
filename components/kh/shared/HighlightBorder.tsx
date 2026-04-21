@@ -33,6 +33,7 @@ export const HighlightBorder: React.FC<{
       className={cn(
         shape === "square" ? "shadow-lg/50" : "shadow-none",
         radius,
+        className,
       )}
     >
       <Comp
@@ -47,7 +48,6 @@ export const HighlightBorder: React.FC<{
               : `bg-linear-to-br from-${base} to-${grad}`
             : `bg-${base}`,
           radius,
-          className,
         )}
       >
         <div

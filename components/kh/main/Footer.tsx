@@ -11,8 +11,8 @@ import { Settings } from "../Settings";
 
 export const Footer: React.FC = () => {
   return (
-    <div className="ml-2 sm:ml-3 mr-2 flex flex-col">
-      <p className={cn("ml-1 font-bold", textSize.normal)}>
+    <div className="pl-2 sm:pl-3 pr-2 w-full flex flex-col">
+      <p className={cn("pl-2 font-bold", textSize.normal)}>
         Developed by kvnbanunu
       </p>
       <div className="flex justify-between">
@@ -29,7 +29,7 @@ const Socials: React.FC = () => {
       <SocialButton href="https://github.com/kvnbanunu">
         <FontAwesomeIcon icon={faGithub} />
       </SocialButton>
-      <SocialButton href="https://linkedin.com/in/kvnbanunu">
+      <SocialButton href="https://www.linkedin.com/in/kvnbanunu">
         <FontAwesomeIcon icon={faLinkedin} />
       </SocialButton>
       <SocialButton href="/kvnbanunu_resume.pdf">

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { MenuButton } from "./MainButton";
 import { About } from "./About";
 import { Footer } from "./Footer";
+import { Projects } from "./Projects";
 
 type MenuItem = {
   title: string;
@@ -18,18 +19,17 @@ const list: Record<string, MenuItem> = {
     title: "ABOUT",
     component: <About />,
   },
+  projects: {
+    title: "PROJECTS",
+    component: <Projects />,
+  },
   experience: {
     title: "EXPERIENCE",
     component: <Experience />,
   },
-  projects: {
-    title: "PROJECTS",
-  },
-  education: {
-    title: "EDUCATION",
-  },
   skills: {
     title: "SKILLS",
+    component: <Experience />,
   },
 };
 
@@ -38,9 +38,9 @@ export const MainMenu: React.FC = () => {
   const [current, setCurrent] = useState<MenuItem>(list.about);
 
   return (
-    <div className="h-dvh bg-[url(/khpattern10.png)]">
+    <div className="h-dvh bg-[url(/khpattern10.png)] bg-cover bg-top-right bg-no-repeat">
       <div className="h-full flex flex-col justify-between bg-radial-[at_100%_0%] from-transparent to-white">
-        <div className="h-full flex flex-col justify-between">
+        <div className="h-full w-full flex flex-col justify-between items-center">
           {current.component}
           <Footer />
         </div>

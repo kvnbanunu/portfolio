@@ -32,7 +32,7 @@ interface SfxContextType {
 }
 
 const defaultValues: SfxContextType = {
-  init: true,
+  init: false,
   sfxOn: true,
   bgmOn: true,
   bgmPlaying: false,
