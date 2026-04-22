@@ -11,7 +11,7 @@ import { Settings } from "../Settings";
 
 export const Footer: React.FC = () => {
   return (
-    <div className="pl-2 sm:pl-3 pr-2 w-full flex justify-between">
+    <div className="pl-2 sm:pl-3 pr-2 w-full flex justify-between items-center">
       <div className="flex flex-col">
         <p className={cn("pl-2 font-bold", textSize.normal)}>
           Developed by kvnbanunu
@@ -21,17 +21,6 @@ export const Footer: React.FC = () => {
       <Settings />
     </div>
   );
-  // return (
-  //   <div className="pl-2 sm:pl-3 pr-2 w-full flex flex-col">
-  //     <p className={cn("pl-2 font-bold", textSize.normal)}>
-  //       Developed by kvnbanunu
-  //     </p>
-  //     <div className="flex justify-between">
-  //       <Socials />
-  //       <Settings />
-  //     </div>
-  //   </div>
-  // );
 };
 
 const Socials: React.FC = () => {
@@ -56,17 +45,19 @@ const SocialButton: React.FC<{ href: string; children: React.ReactNode }> = ({
 }) => {
   return (
     <Sfx click="select">
-      <button className="aspect-square rounded-full group relative hover:cursor-pointer border-2 hover:border-khd-highlight/50 bg-white/50 hover:bg-white">
-        <Link
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn("text-center text-khd-highlight", textSize.title)}
-        >
-          {children}
-        </Link>
+      <Link
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={cn(
+          "aspect-square rounded-full group relative hover:cursor-pointer border-2 hover:border-khd-highlight/10 bg-white/50 hover:bg-white",
+          "text-center text-khd-highlight",
+          textSize.title,
+        )}
+      >
+        {children}
         <HoverDot variant="small" />
-      </button>
+      </Link>
     </Sfx>
   );
 };

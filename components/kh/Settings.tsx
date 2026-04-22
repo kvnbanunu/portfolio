@@ -23,7 +23,6 @@ import { HoverDot } from "./shared/HoverDot";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { Separator } from "./shared/Separator";
-import Image from "next/image";
 import { HeartOverlay } from "./shared/HeartOverlay";
 
 export const Settings: React.FC = () => {
@@ -53,7 +52,7 @@ export const Settings: React.FC = () => {
         <DialogTrigger asChild>
           <button
             className={cn(
-              "py-1 px-4 rounded-full border-2 hover:border-khd-highlight/50 bg-white/50 hover:bg-white/80 text-khd-highlight text-center hover:cursor-pointer group relative font-bold",
+              "py-1 px-4 rounded-full border-2 hover:border-khd-highlight/10 bg-white/50 hover:bg-white/80 text-khd-highlight text-center hover:cursor-pointer group relative font-bold",
               textSize.title,
             )}
           >

@@ -6,17 +6,19 @@ export const About: React.FC = () => {
   return (
     <div className="h-full p-2 flex flex-col md:flex-row md:justify-between gap-2 text-khd-highlight">
       <Section>
-        <h1 className={cn("font-black text-3xl mb-2")}>Kevin Van Nguyen</h1>
-        <p className={cn("font-bold mb-2", textSize.heading)}>
+        <h1 className={cn("font-black text-3xl 2xl:text-5xl mb-2")}>
+          Kevin Van Nguyen
+        </h1>
+        <p className={cn("font-bold mb-2 2xl:text-3xl", textSize.heading)}>
           Software Developer
         </p>
-        <p className={cn("font-bold opacity-70", textSize.normal)}>
+        <p className={cn("font-bold opacity-70 2xl:text-lg", textSize.normal)}>
           My friends call me Banunu.
           <br />I build useful tools that make life easier.
         </p>
       </Section>
       <Section variant="content">
-        <p className={cn("font-bold", textSize.normal)}>
+        <p className={cn("font-bold lg:text-xl 2xl:text-2xl", textSize.normal)}>
           I'm a systems-focused software developer based in Vancouver, BC with
           over three years of experience building performant and reliable
           software in C, Go, and TypeScript. My work spans distributed systems,

@@ -24,13 +24,11 @@ export const Projects: React.FC = () => {
   const projects = projectList.slice(0, 3);
 
   return (
-    <div className="h-full w-full max-w-7xl py-4 px-8 flex justify-center items-center">
-      <Carousel className="w-[95%] lg:w-[90%]" opts={{ loop: true }}>
+    <div className="h-full w-full py-4 px-8 max-w-4xl 2xl:max-w-7xl flex flex-col justify-center items-center min-h-0">
+      <Carousel className="w-[95%]" opts={{ align: "start", loop: true }}>
         <CarouselContent>
           {projects.map((project, index) => (
-            <React.Fragment key={project.title + index}>
-              <ProjectItem project={project} />
-            </React.Fragment>
+            <ProjectItem project={project} key={project.title + index} />
           ))}
         </CarouselContent>
         <CarouselPrevious
@@ -55,7 +53,7 @@ export const Projects: React.FC = () => {
 const ProjectItem: React.FC<{ project: Project }> = ({ project }) => {
   return (
     <CarouselItem>
-      <div className="w-full flex flex-col gap-4 items-center px-1">
+      <div className="w-full flex flex-col gap-2 items-center px-1">
         <HighlightBorder
           shape="diamond"
           gradient
@@ -64,8 +62,8 @@ const ProjectItem: React.FC<{ project: Project }> = ({ project }) => {
         >
           <DiamondContainer
             className={cn(
-              "py-1 lg:py-2 w-2xs md:w-xs lg:w-lg bg-linear-to-t from-khd-base to-khd-grad text-sky-400 font-black text-shadow-lg/30 text-center",
-              textSize.title,
+              "py-1 w-2xs md:w-xs bg-linear-to-t from-khd-base to-khd-grad text-sky-400 font-black text-shadow-lg/30 text-center",
+              textSize.heading,
             )}
           >
             {project.title}
@@ -79,7 +77,7 @@ const ProjectItem: React.FC<{ project: Project }> = ({ project }) => {
             rounding="2xl"
             className="shadow-none w-full"
           >
-            <div className="w-full flex flex-col bg-linear-to-t from-khd-base to-khd-grad rounded-2xl gap-2 md:gap-4 p-2 relative overflow-hidden">
+            <div className="w-full flex flex-col bg-linear-to-t from-khd-base to-khd-grad rounded-2xl gap-4 md:gap-2 p-2 relative overflow-hidden">
               <HeartOverlay size="small" />
               {project.images && <ImageSelector project={project} />}
               <LinkButtons project={project} />
@@ -109,7 +107,7 @@ const Description: React.FC<{ project: Project }> = ({ project }) => {
     <p
       className={cn(
         "text-sky-400 text-shadow-lg/30 font-bold text-center",
-        textSize.normal,
+        "text-xs sm:text-sm md:text-base",
       )}
     >
       {elements}
@@ -143,9 +141,9 @@ const ImageSelector: React.FC<{
                   onClick={() => {
                     setSelected(image);
                   }}
-                  className="cursor-pointer relative group"
+                  className="cursor-pointer relative group aspect-video w-full"
                 >
-                  <div className="relative aspect-video w-full overflow-hidden border-4 border-sky-500 rounded">
+                  <div className="relative h-full w-full overflow-hidden border-4 border-sky-500 rounded">
                     <Image
                       src={image}
                       alt={project.title + index}
@@ -179,7 +177,7 @@ const LinkButtons: React.FC<{ project: Project }> = ({ project }) => {
                 buttonStyle.base,
                 buttonStyle.bgBlack,
                 buttonStyle.hoverRed,
-                textSize.normal,
+                "text-xs sm:text-sm md:text-base",
               )}
             >
               {link.label}
