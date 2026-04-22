@@ -22,6 +22,7 @@ export const HeartOverlay: React.FC<{ size?: Size }> = ({
         sizes="(max-width: 480px) 25vw"
         fill
         className="object-contain"
+        loading="eager"
       />
     </div>
   );
