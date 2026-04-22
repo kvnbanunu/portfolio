@@ -39,12 +39,12 @@ export const MainMenu: React.FC = () => {
 
   return (
     <div className="h-dvh bg-[url(/khpattern10.png)] bg-cover bg-top-right bg-no-repeat">
-      <div className="h-full flex flex-col justify-between bg-radial-[at_100%_0%] from-transparent to-white">
+      <div className="h-full flex flex-col gap-2 justify-between bg-radial-[at_100%_0%] from-transparent to-white">
         <div className="h-full w-full flex flex-col justify-between items-center">
           {current.component}
           <Footer />
         </div>
-        <div className="flex flex-col gap-4 my-4">
+        <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
           {Object.entries(list).map(([key, item]) => (
             <MenuButton
               label={item.title}

@@ -22,6 +22,9 @@ import { cn } from "@/lib/utils";
 import { HoverDot } from "./shared/HoverDot";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
+import { Separator } from "./shared/Separator";
+import Image from "next/image";
+import { HeartOverlay } from "./shared/HeartOverlay";
 
 export const Settings: React.FC = () => {
   const {
@@ -50,7 +53,7 @@ export const Settings: React.FC = () => {
         <DialogTrigger asChild>
           <button
             className={cn(
-              "p-1 px-4 rounded-full border-2 hover:border-khd-highlight/50 bg-white/50 hover:bg-white/80 text-khd-highlight text-center hover:cursor-pointer group relative font-bold",
+              "py-1 px-4 rounded-full border-2 hover:border-khd-highlight/50 bg-white/50 hover:bg-white/80 text-khd-highlight text-center hover:cursor-pointer group relative font-bold",
               textSize.title,
             )}
           >
@@ -88,7 +91,8 @@ export const Settings: React.FC = () => {
             grad="khd-grad"
             rounding="2xl"
           >
-            <div className="flex flex-col items-center gap-2 lg:gap-4 justify-evenly p-4 w-sm sm:w-lg md:w-xl lg:w-4xl h-72 sm:h-80 md:h-96 lg:h-128 rounded-2xl bg-linear-to-t from-khd-base to-khd-grad">
+            <div className="flex flex-col items-center gap-2 lg:gap-4 justify-evenly p-4 w-sm sm:w-lg md:w-xl lg:w-4xl h-72 sm:h-80 md:h-96 lg:h-128 rounded-2xl bg-linear-to-t from-khd-base to-khd-grad relative overflow-hidden">
+              <HeartOverlay />
               <DialogHeader>
                 <DialogTitle
                   className={cn(
@@ -133,7 +137,7 @@ export const Settings: React.FC = () => {
                   />
                 </Option>
               </FieldGroup>
-              <div className="h-1 w-full bg-linear-to-r from-transparent via-khd-highlight to-transparent"></div>
+              <Separator />
               <DialogFooter>
                 <div className="flex flex-col gap-2">
                   <DialogDescription

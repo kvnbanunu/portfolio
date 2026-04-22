@@ -35,7 +35,7 @@ export const About: React.FC = () => {
           Outside of programming, I'm currently trying to teach myself how to
           play piano as well as draw art. For fitness I train for powerlifting
           and running. Also as you can probably guess from the design of this
-          site, I'm a huge Kingdom Hearts fan!
+          site, I'm a huge fan of Kingdom Hearts!
         </p>
       </Section>
     </div>
