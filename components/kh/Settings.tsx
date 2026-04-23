@@ -52,14 +52,14 @@ export const Settings: React.FC = () => {
         <DialogTrigger asChild>
           <button
             className={cn(
-              "py-1 px-4 rounded-full border-2 hover:border-khd-highlight/10 bg-white/50 hover:bg-white/80 text-khd-highlight text-center hover:cursor-pointer group relative font-bold",
-              textSize.title,
+              "py-1 px-4 rounded-full cursor-pointer group relative",
+              "border-2 hover:border-khd-highlight/10 bg-white/50 hover:bg-white/80",
+              "text-khd-highlight text-center font-bold",
+              textSize.normal,
             )}
           >
             <FontAwesomeIcon icon={faGear} />
-            <span className={cn("pl-1 align-text-top", textSize.normal)}>
-              Sound Settings
-            </span>
+            <span className="pl-1">Sound Settings</span>
             <HoverDot />
           </button>
         </DialogTrigger>

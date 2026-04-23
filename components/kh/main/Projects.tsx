@@ -122,8 +122,8 @@ const ImageSelector: React.FC<{
   const [selected, setSelected] = useState<string>(defaultImage);
 
   return (
-    <div className="w-full flex gap-2">
-      <div className="w-10/12 aspect-video border-4 border-sky-500 relative overflow-hidden rounded">
+    <div className="w-full flex gap-1 md:gap-2">
+      <div className="w-10/12 aspect-video border-2 md:border-4 border-sky-500 relative overflow-hidden rounded">
         <Image
           src={selected}
           alt={selected}
@@ -132,7 +132,7 @@ const ImageSelector: React.FC<{
           className="object-cover"
         />
       </div>
-      <div className="flex flex-col w-2/12 gap-2">
+      <div className="flex flex-col w-2/12 gap-1 md:gap-2">
         {project.images &&
           project.images.map((image, index) => (
             <React.Fragment key={index}>
@@ -143,7 +143,7 @@ const ImageSelector: React.FC<{
                   }}
                   className="cursor-pointer relative group aspect-video w-full"
                 >
-                  <div className="relative h-full w-full overflow-hidden border-4 border-sky-500 rounded">
+                  <div className="relative h-full w-full overflow-hidden border-2 md:border-4 border-sky-500 rounded">
                     <Image
                       src={image}
                       alt={project.title + index}
@@ -177,7 +177,7 @@ const LinkButtons: React.FC<{ project: Project }> = ({ project }) => {
                 buttonStyle.base,
                 buttonStyle.bgBlack,
                 buttonStyle.hoverRed,
-                "text-xs sm:text-sm md:text-base",
+                "text-xs sm:text-sm md:text-base text-center",
               )}
             >
               {link.label}

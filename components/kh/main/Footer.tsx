@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
   return (
     <div className="pl-2 sm:pl-3 pr-2 w-full flex justify-between items-center">
       <div className="flex flex-col">
-        <p className={cn("pl-2 font-bold", textSize.normal)}>
+        <p className={cn("pl-1 font-bold", textSize.normal)}>
           Developed by kvnbanunu
         </p>
         <Socials />
