@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* --breakpoint-2xl: 120rem; */
+  --breakpoint-2xl: 120rem;
   --color-pal1: oklch(0.2167 0.0388 284.95);
   --color-pal2: oklch(0.2618 0.0372 283.53);
   --color-pal3: oklch(0.2947 0.0468 284.9);
