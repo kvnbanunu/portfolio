@@ -30,11 +30,11 @@ const list: Record<string, MenuItem> = {
     title: "EXPERIENCE",
     component: <Experience />,
   },
-  skills: {
-    key: "skills",
-    title: "SKILLS",
-    component: <Skills />,
-  },
+  // skills: {
+  //   key: "skills",
+  //   title: "SKILLS",
+  //   component: <Skills />,
+  // },
 };
 
 export const MainMenu: React.FC = () => {
@@ -50,7 +50,7 @@ export const MainMenu: React.FC = () => {
         "bg-[url(/khbg/khpat10.png)]": selected === list.about.key,
         "bg-[url(/khbg/khbg02.png)]": selected === list.projects.key,
         "bg-[url(/khbg/khpat05.png)]": selected === list.experience.key,
-        "bg-[url(/khbg/khpat07.png)]": selected === list.skills.key,
+        // "bg-[url(/khbg/khpat07.png)]": selected === list.skills.key,
       })}
     >
       <div className="h-full flex flex-col gap-2 justify-between bg-radial-[at_100%_0%] from-transparent from-60% to-white/75">

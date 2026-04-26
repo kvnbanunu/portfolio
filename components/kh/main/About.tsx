@@ -1,4 +1,5 @@
 import { textSize } from "@/components/Styles";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import React from "react";
 
@@ -18,41 +19,48 @@ export const About: React.FC = () => {
         </p>
       </Section>
       <Section variant="content">
-        <p className={cn("font-bold lg:text-xl 2xl:text-2xl", textSize.normal)}>
-          I'm a systems-focused software developer based in Vancouver, BC with
-          over three years of experience building performant and reliable
-          software in C, Go, and TypeScript. My work spans distributed systems,
-          network protocols, backend services, and developer tooling, with an
-          emphasis on correctness, scalability, and clean system design. I’m
-          motivated by solving complex technical problems and creating software
-          that is both efficient under the hood and intuitive to use.
-          <br />
-          <br />
-          Currently I'm finishing my BSc in Applied Computer Science at British
-          Columbia Institute of Technology with a specialization in Network
-          Security Applications Development. I'm also employed as a Lab Proctor
-          / Systems Administrator under my program's option head.
-          <br />
-          <br />
-          Outside of programming, I'm currently trying to teach myself how to
-          play piano as well as draw art. For fitness I train for powerlifting
-          and running. Also as you can probably guess from the design of this
-          site, I'm a huge fan of Kingdom Hearts!
-        </p>
+        <ScrollArea className="min-h-0 h-full">
+          <div
+            className={cn("font-bold lg:text-xl 2xl:text-2xl", textSize.normal)}
+          >
+            I'm a systems-focused software developer based in Vancouver, BC with
+            over three years of experience building performant and reliable
+            software in C, Go, and TypeScript. My work spans distributed
+            systems, network protocols, backend services, and developer tooling,
+            with an emphasis on correctness, scalability, and clean system
+            design. I’m motivated by solving complex technical problems and
+            creating software that is both efficient under the hood and
+            intuitive to use.
+            <br />
+            <br />
+            Currently I'm finishing my BSc in Applied Computer Science at
+            British Columbia Institute of Technology with a specialization in
+            Network Security Applications Development. I'm also employed as a
+            Lab Proctor / Systems Administrator under my program's option head.
+            <br />
+            <br />
+            Outside of programming, I'm currently trying to teach myself how to
+            play piano as well as draw art. For fitness I train for powerlifting
+            and running. Also as you can probably guess from the design of this
+            site, I'm a huge fan of Kingdom Hearts!
+          </div>
+        </ScrollArea>
       </Section>
     </div>
   );
 };
 
-const Section: React.FC<{ variant?: string; children: React.ReactNode }> = ({
-  variant,
-  children,
-}) => {
+const Section: React.FC<{
+  variant?: string;
+  className?: string;
+  children: React.ReactNode;
+}> = ({ variant, className, children }) => {
   return (
     <div
       className={cn(
         "p-4 w-full rounded-2xl bg-white/50 hover:bg-white/70 text-shadow-sm",
         variant === "content" ? "md:w-2/3 h-full" : "md:w-1/3 md:h-full",
+        className,
       )}
     >
       {children}
