@@ -53,7 +53,7 @@ export const Settings: React.FC = () => {
           <button
             className={cn(
               "py-1 px-4 rounded-full cursor-pointer group relative",
-              "border-2 hover:border-khd-highlight/10 bg-white/50 hover:bg-white/80",
+              "bg-white/75 hover:bg-white",
               "text-khd-highlight text-center font-bold",
               textSize.normal,
             )}

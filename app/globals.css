@@ -17,6 +17,13 @@
   --color-khd-grad: #010020;
   --color-khd-selhigh: #440900;
   --color-khd-selgrad: #2a0400;
+  --color-khl-base: #00492b;
+  --color-khl-highlight: #01bc69;
+  --color-khl-grad: #001a0f;
+  --color-khl-sel: #440500;
+  --color-khl-selgrad: #1d0100;
+  --color-khl-tgr: #22a131;
+  --color-khl-tor: #f58921;
 }
 
 @theme inline {

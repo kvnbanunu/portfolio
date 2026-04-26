@@ -50,7 +50,7 @@ const SocialButton: React.FC<{ href: string; children: React.ReactNode }> = ({
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
-          "aspect-square rounded-full group relative hover:cursor-pointer border-2 hover:border-khd-highlight/10 bg-white/50 hover:bg-white",
+          "aspect-square rounded-full group relative hover:cursor-pointer hover:bg-white",
           "text-center text-khd-highlight",
           textSize.title,
         )}
