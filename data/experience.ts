@@ -7,9 +7,20 @@ export type Job = {
 
 export const jobList: Job[] = [
   {
+    company: "Incognito Software Inc.",
+    position: "QA Software Engineer",
+    date: { from: "SEP 2026", to: "APR 2027" },
+    desc: [
+      "Develop and maintain automated test suites for distributed systems.",
+      "Monitor and analyze system logs for performance bottlenecks and security threats.",
+      "Collaborate with development teams on CI/CD pipeline improvements.",
+      "Participate in code reviews and quality assurance processes.",
+    ],
+  },
+  {
     company: "British Columbia Institute of Technology",
     position: "Lab Proctor / Systems Adiminstrator",
-    date: { from: "SEP 2025", to: "MAY 2026" },
+    date: { from: "SEP 2025", to: "AUG 2026" },
     desc: [
       "Developed and tested automation scripts to simultaneously re-image 25+ lab machines weekly, improving reliability and turnaround time.",
       "Collaborated with BCIT Computing faculty to automate system configuration and integrity checks across instructional lab environments.",
@@ -50,7 +61,7 @@ export const educationList: Education[] = [
     school: "British Columbia Institute of Technology",
     degree: "Bachelor of Science in Applied Computer Science",
     major: "Network Security Applications Development",
-    date: { from: "SEP 2025", to: "MAY 2027" },
+    date: { from: "SEP 2025", to: "MAY 2028" },
     extra: ["Co-op Program", "Set Representative"],
   },
   {
