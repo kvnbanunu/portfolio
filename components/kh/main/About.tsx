@@ -33,10 +33,13 @@ export const About: React.FC = () => {
             intuitive to use.
             <br />
             <br />
-            Currently I'm finishing my BSc in Applied Computer Science at
-            British Columbia Institute of Technology with a specialization in
-            Network Security Applications Development. I'm also employed as a
-            Lab Proctor / Systems Administrator under my program's option head.
+            Currently I work as a Software Engineer for Incognito Software Inc.
+            as part of the quality assurance team.
+            <br />
+            <br />
+            I am in my last year at British Columbia Institute of Technology
+            pursuing a BSc in Applied Computer Science. I also worked as a Lab
+            Proctor / Systems Administrator under my program's option head.
             <br />
             <br />
             Outside of programming, I'm currently trying to teach myself how to
